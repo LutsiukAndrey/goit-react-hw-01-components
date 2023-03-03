@@ -1,20 +1,44 @@
-import stat from '../data/data.json'
-import s from './Statistics.module.css'
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { StatisticsItem } from './StatisticsData';
 import { randomColor } from './randomColor';
-console.log(stat);
-const Statistics =()=>{
 
-    return <section className={s.statistics}>
-    <h2 className={s.title}>Upload stats</h2>
-    <ul className={s.statList}>
-{stat.map(({id,label,percentage}) =>(
-  <li key={id} className={s.item} style={{ backgroundColor: randomColor() }}>
-        <span className={s.label}> {label}</span>
-        <span className={s.percentage}> {percentage}</span>
-      </li>
+const Statistics = ({ stat, title }) => {
+  return (
+    <StatisticsSection>
+      {title ? <Title>{title}</Title> : ''}
+      <StatisticsList>
+        {stat.map(({ id, label, percentage }) => (
+          <StatisticsItem
+            key={id}
+            label={label}
+            percentage={percentage}
+            color={randomColor}
+          />
+        ))}
+      </StatisticsList>
+    </StatisticsSection>
+  );
+};
+const StatisticsSection = styled.section`
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  padding-top: 20px;
+`;
+const Title = styled.h2`
+  text-align: center;
+  color: rgb(198, 198, 198);
+`;
+const StatisticsList = styled.ul`
+  display: flex;
+  padding: 0;
+`;
 
-))}
-    </ul>
-  </section>
-}
-export default Statistics
+export default Statistics;
+
+Statistics.protoType = {
+  stat: PropTypes.array.isRequired,
+  title: PropTypes.string,
+};
