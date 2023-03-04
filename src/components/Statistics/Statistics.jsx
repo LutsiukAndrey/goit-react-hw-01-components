@@ -20,6 +20,18 @@ const Statistics = ({ stat, title }) => {
     </StatisticsSection>
   );
 };
+
+Statistics.protoType = {
+  stat: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
+  title: PropTypes.string,
+};
+
 const StatisticsSection = styled.section`
   max-width: 500px;
   margin-right: auto;
@@ -37,8 +49,3 @@ const StatisticsList = styled.ul`
 `;
 
 export default Statistics;
-
-Statistics.protoType = {
-  stat: PropTypes.array.isRequired,
-  title: PropTypes.string,
-};

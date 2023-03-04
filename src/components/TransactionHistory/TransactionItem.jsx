@@ -10,6 +10,7 @@ export const TransactionItem = ({ type, amount, currency }) => {
     </tr>
   );
 };
+
 TransactionItem.propTypes = {
   type: PropTypes.string.isRequired,
   amount: PropTypes.string.isRequired,

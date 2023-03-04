@@ -21,6 +21,7 @@ export const Profile = () => {
     </Container>
   );
 };
+
 const Stats = styled.ul`
   padding: 20px;
   display: flex;
@@ -28,6 +29,7 @@ const Stats = styled.ul`
   margin-bottom: 0;
   justify-content: space-between;
 `;
+
 const Container = styled.div`
   background-color: #fcfcfc;
   border: 2px solid #111;

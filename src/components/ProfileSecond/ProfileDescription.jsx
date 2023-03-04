@@ -11,6 +11,14 @@ export const ProfileDescription = ({ username, tag, location, avatar }) => {
     </Description>
   );
 };
+
+ProfileDescription.propTypes = {
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+};
+
 const Description = styled.div``;
 const Avatar = styled.img`
   width: 150px;
@@ -23,9 +31,3 @@ const Name = styled.p`
 `;
 const Tag = styled.p``;
 const Location = styled.p``;
-ProfileDescription.propTypes = {
-  username: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-};
